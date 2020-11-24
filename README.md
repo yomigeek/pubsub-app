@@ -19,7 +19,7 @@ Duration: 1min 26seconds
 - Redis
 
 ### Installation
-- Install Redis on your machine or server
+- Install Redis on your machine or server https://redis.io/topics/quickstart
 - Clone the repo: Run git clone https://github.com/yomigeek/pubsub-app.git in the folder where you want the repo to be saved.
 - Navigate into the newly created folder and install the dependencies using your command line: ```cd folder_name && npm install```
 - Start the app by using ```npm run start``` and for development use ```npm run dev```
