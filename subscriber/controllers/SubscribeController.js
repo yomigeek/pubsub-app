@@ -1,28 +1,27 @@
-import redis from 'redis';
+import redis from "redis";
 
 const subscriber = redis.createClient();
 
 class SubscribeController {
-  static topicSubscription(req, res) {
+  static topicSubscription(req, resp) {
     const topic = req.params.topic;
     const {url} = req.body;
     if (!url) {
       return res.status(400).json({
-        status: 'error',
+        status: "error",
         statusCode: 400,
-        error: 'url is missing from the body',
+        error: "url is missing from the body",
       });
     } else {
-      subscriber.on('message', (channel, message) => {
+      subscriber.on("message", (channel, message) => {
         console.log({topic: channel, data: {msg: message}});
       });
 
       subscriber.subscribe(topic);
 
-      return res.status(200).json({
-        status: 'success',
-        statusCode: 200,
-        message: `Subscription to ${topic} is successful on ${url}`,
+      return resp.status(200).json({
+        url,
+        topic,
       });
     }
   }

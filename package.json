@@ -4,7 +4,9 @@
   "description": "A PubSub App",
   "main": "app.js",
   "scripts": {
-    "start": "cd server && babel-node app.js --exec babel-node --presets es2015",
+    "start": "npm-run-all --parallel subscriber publisher",
+    "publisher": "cd publisher && babel-node app.js --exec babel-node --presets es2015",
+    "subscriber": "cd subscriber && babel-node app.js --exec babel-node --presets es2015",
     "dev": "cd server && nodemon app.js --exec babel-node --presets es2015"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/yomigeek/pubsub-app#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-install": "^2.1.0",
@@ -29,6 +32,7 @@
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
     "redis": "^3.0.2",
     "unirest": "^0.6.0"
   },
